@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Selection Criteria Matrix</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Stylesheet (as per instructions) -->
+    <style>
+        /* --- START STYLESHEET --- */
+        :root {
+            --bg-primary: #f9fafb;
+            --bg-secondary: #ffffff;
+            --bg-main: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --border-color: #d1d5db;
+            --input-bg: #ffffff;
+            --input-border: #d1d5db;
+            --input-text: #111827;
+            --input-placeholder: #9ca3af;
+            --active-item-bg: #e5e7eb;
+            --btn-bg: #e5e7eb;
+            --btn-text: #374151;
+            --btn-hover-bg: #d1d5db;
+        }
+
+        .dark-mode {
+            --bg-primary: #030712;
+            --bg-secondary: #111827;
+            --bg-main: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --border-color: #4b5563;
+            --input-bg: #111827;
+            --input-border: #4b5563;
+            --input-text: #e5e7eb;
+            --input-placeholder: #9ca3af;
+            --active-item-bg: #374151;
+            --btn-bg: #374151;
+            --btn-text: #f9fafb;
+            --btn-hover-bg: #4b5563;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        main {
+            background-color: var(--bg-secondary);
+        }
+        
+        .form-input, select {
+            background-color: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--input-text);
+        }
+
+        .form-input::placeholder {
+            color: var(--input-placeholder);
+        }
+
+        .result-box {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+        }
+        
+        .criteria-item.active {
+            background-color: var(--active-item-bg);
+        }
+
+        #theme-toggle-btn {
+            color: var(--text-secondary);
+        }
+
+        #theme-toggle-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .prose h3 { color: var(--text-primary); }
+        .prose p, .prose ul li { color: var(--text-secondary); }
+        .prose strong { color: var(--text-primary); }
+        .prose ul li::marker { color: var(--text-secondary); }
+
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+        }
+
+        .prose th,
+        .prose td {
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .dark-mode .prose th,
+        .dark-mode .prose td {
+            border-color: #4b5563;
+        }
+
+        .prose th {
+            font-weight: 600;
+            background-color: var(--bg-main);
+        }
+        /* --- END STYLESHEET --- */
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="w-full max-w-5xl mx-auto">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-6">
+            <div>
+                <h1 class="text-2xl font-bold">Selection Criteria Matrix</h1>
+                <p class="text-base" style="color: var(--text-secondary);">Associate Advisor (Curriculum), Ref. 0140568</p>
+            </div>
+            <button id="theme-toggle-btn" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" style="--ring-offset-color: var(--bg-primary); --ring-color: var(--text-secondary);">
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+            </button>
+        </header>
+
+        <!-- Main Application Container -->
+        <main class="p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Left Panel: Criteria List -->
+                <div id="criteria-list" class="w-full md:w-1/3 flex-shrink-0 space-y-2">
+                    <!-- Criteria will be dynamically inserted here -->
+                </div>
+
+                <!-- Right Panel: Details Display -->
+                <div class="w-full md:w-2/3">
+                    <div id="criteria-details" class="result-box p-6 rounded-xl min-h-[300px] prose">
+                        <!-- Details will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-8">
+            <p class="text-sm" style="color: var(--text-secondary);">Built by Stafford Lumsden | Educational Designer</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- DATA ---
+            const selectionCriteriaData = [
+                { id: 1, criterion: "Tertiary qualifications and/or equivalent experience", details: `<h3>PhD in Applied Linguistics (Macquarie, 2022)</h3><p>My doctoral research focused on multimodal learning and curriculum design, providing a strong theoretical and practical foundation for this role. This is complemented by extensive, hands-on project management of major curriculum reforms, Learning Management System (LMS) uplifts, and assessment redesign initiatives across both the University of Sydney and the University of Wollongong.</p>` },
+                { id: 2, criterion: "Experience managing complex processes in large organisations", details: `<h3>Chair, Unit Outline Approval Committee (Sydney Law School)</h3><p>In this capacity, I oversee curriculum compliance for over 300 units of study, a process requiring meticulous attention to detail and stakeholder management. I also led the faculty-wide Canvas LMS Template Uplift, successfully balancing competing academic and administrative demands. My experience includes navigating complex governance structures such as the Academic Board, faculty committees, and external bodies like the Legal Profession Admission Board (LPAB).</p>` },
+                { id: 3, criterion: "Experience in the higher education or tertiary sector", details: `<h3>Decade of Sector Experience</h3><p>I have over ten years of experience in Australian higher education, with roles at the University of Sydney, University of Wollongong, and Macquarie University. This is enhanced by international university experience in South Korea and consultancy work for UNSW and UNE on the strategic implementation of AI in education. This background provides me with a deep, practical understanding of the sector's regulatory landscape, including TEQSA, the Australian Qualifications Framework (AQF), and the CALD Threshold Learning Outcomes.</p>` },
+                { id: 4, criterion: "Proven project management experience", details: `<h3>Track Record of Project Delivery</h3><p>I have successfully delivered numerous faculty-wide projects, including an 'AI in Legal Education' Framework, 'Just-in-Time' Research Training modules, and the design of Ngura competency-based assessments. Each project was managed to strict deadlines and within established governance frameworks. My ability to secure both internal and national education grants further demonstrates my project management capabilities.</p>` },
+                { id: 5, criterion: "Skills in policy analysis, research and report writing", details: `<h3>Expert Policy & Research Skills</h3><p>As a published researcher in educational design, my work is grounded in evidence. I have authored formal submissions for LPAB governance reviews and produced detailed briefs on critical sector issues like generative AI, assessment integrity, and TEQSA/HESF compliance. I regularly prepare high-stakes reports that inform the decisions of the Academic Board and other senior executive committees.</p>` },
+                { id: 6, criterion: "Organisational and administrative skills", details: `<h3>Systematic & Meticulous Approach</h3><p>My work is characterised by a high degree of organisation and attention to detail. I developed systematic curriculum mapping processes to link Unit Learning Outcomes (ULOs), Course Learning Outcomes (CLOs), and Graduate Qualities. I have direct oversight of the compliance documentation required for all curriculum approvals and am adept at coordinating multiple complex projects simultaneously with a high level of accuracy.</p>` },
+                { id: 7, criterion: "Interpersonal, negotiation and communication skills", details: `<h3>Collaborative Stakeholder Engagement</h3><p>I work collaboratively with a diverse range of stakeholders, including Associate Deans, the DVC Education portfolio, the Library, and academic staff across various faculties. I have successfully negotiated cross-unit initiatives (e.g., 'Just-in-Time' research training) and am recognised for clear, persuasive communication that has led to grant success and governance approvals. My academic and professional writing is consistently noted for its clarity and rigour.</p>` }
+            ];
+            
+            // --- DOM ELEMENTS ---
+            const criteriaListContainer = document.getElementById('criteria-list');
+            const detailsContainer = document.getElementById('criteria-details');
+            const themeToggleButton = document.getElementById('theme-toggle-btn');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+
+            // --- FUNCTIONS ---
+            function displayDetails(criterionId) {
+                const selectedCriterion = selectionCriteriaData.find(c => c.id === criterionId);
+                if (selectedCriterion) {
+                    detailsContainer.innerHTML = selectedCriterion.details;
+                }
+
+                document.querySelectorAll('.criteria-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (parseInt(item.dataset.id) === criterionId) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            function populateCriteriaList() {
+                selectionCriteriaData.forEach(criterion => {
+                    const item = document.createElement('div');
+                    item.className = 'criteria-item p-4 rounded-lg cursor-pointer transition-colors duration-200';
+                    item.style.border = '1px solid var(--border-color)';
+                    item.dataset.id = criterion.id;
+                    item.innerHTML = `<p class="font-semibold text-sm">${criterion.id}. ${criterion.criterion}</p>`;
+                    item.addEventListener('click', () => displayDetails(criterion.id));
+                    criteriaListContainer.appendChild(item);
+                });
+            }
+
+            function toggleTheme() {
+                document.body.classList.toggle('dark-mode');
+                sunIcon.classList.toggle('hidden');
+                moonIcon.classList.toggle('hidden');
+                localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            }
+            
+            function applyInitialTheme() {
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                }
+            }
+            
+            // --- INITIALIZATION & EVENT LISTENERS ---
+            applyInitialTheme();
+            populateCriteriaList();
+            displayDetails(1); 
+            
+            themeToggleButton.addEventListener('click', toggleTheme);
+        });
+    </script>
+</body>
+</html>
+
