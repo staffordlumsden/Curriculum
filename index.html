@@ -126,8 +126,9 @@
         <!-- Header -->
         <header class="flex justify-between items-center mb-6">
             <div>
-                <h1 class="text-2xl font-bold">Selection Criteria Matrix</h1>
+                <h1 class="text-2xl font-bold">Selection Criteria Statement</h1>
                 <p class="text-base" style="color: var(--text-secondary);">Associate Advisor (Curriculum), Ref. 0140568</p>
+                <p class="text-base font-medium" style="color: var(--text-secondary);">Dr Stafford Lumsden</p>
             </div>
             <button id="theme-toggle-btn" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" style="--ring-offset-color: var(--bg-primary); --ring-color: var(--text-secondary);">
                 <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
@@ -145,10 +146,15 @@
 
                 <!-- Right Panel: Details Display -->
                 <div class="w-full md:w-2/3">
-                    <div id="criteria-details" class="result-box p-6 rounded-xl min-h-[300px] prose">
+                    <div id="criteria-details" class="result-box p-6 rounded-xl min-h-[300px] prose max-w-none">
                         <!-- Details will be dynamically inserted here -->
                     </div>
                 </div>
+            </div>
+            
+            <!-- Closing Statement Section -->
+            <div id="closing-statement-container" class="mt-8 pt-6" style="border-top: 1px solid var(--border-color);">
+                 <!-- Closing statement will be inserted here -->
             </div>
         </main>
         
@@ -162,18 +168,24 @@
         document.addEventListener('DOMContentLoaded', function () {
             // --- DATA ---
             const selectionCriteriaData = [
-                { id: 1, criterion: "Tertiary qualifications and/or equivalent experience", details: `<h3>PhD in Applied Linguistics (Macquarie, 2022)</h3><p>My doctoral research focused on multimodal learning and curriculum design, providing a strong theoretical and practical foundation for this role. This is complemented by extensive, hands-on project management of major curriculum reforms, Learning Management System (LMS) uplifts, and assessment redesign initiatives across both the University of Sydney and the University of Wollongong.</p>` },
-                { id: 2, criterion: "Experience managing complex processes in large organisations", details: `<h3>Chair, Unit Outline Approval Committee (Sydney Law School)</h3><p>In this capacity, I oversee curriculum compliance for over 300 units of study, a process requiring meticulous attention to detail and stakeholder management. I also led the faculty-wide Canvas LMS Template Uplift, successfully balancing competing academic and administrative demands. My experience includes navigating complex governance structures such as the Academic Board, faculty committees, and external bodies like the Legal Profession Admission Board (LPAB).</p>` },
-                { id: 3, criterion: "Experience in the higher education or tertiary sector", details: `<h3>Decade of Sector Experience</h3><p>I have over ten years of experience in Australian higher education, with roles at the University of Sydney, University of Wollongong, and Macquarie University. This is enhanced by international university experience in South Korea and consultancy work for UNSW and UNE on the strategic implementation of AI in education. This background provides me with a deep, practical understanding of the sector's regulatory landscape, including TEQSA, the Australian Qualifications Framework (AQF), and the CALD Threshold Learning Outcomes.</p>` },
-                { id: 4, criterion: "Proven project management experience", details: `<h3>Track Record of Project Delivery</h3><p>I have successfully delivered numerous faculty-wide projects, including an 'AI in Legal Education' Framework, 'Just-in-Time' Research Training modules, and the design of Ngura competency-based assessments. Each project was managed to strict deadlines and within established governance frameworks. My ability to secure both internal and national education grants further demonstrates my project management capabilities.</p>` },
-                { id: 5, criterion: "Skills in policy analysis, research and report writing", details: `<h3>Expert Policy & Research Skills</h3><p>As a published researcher in educational design, my work is grounded in evidence. I have authored formal submissions for LPAB governance reviews and produced detailed briefs on critical sector issues like generative AI, assessment integrity, and TEQSA/HESF compliance. I regularly prepare high-stakes reports that inform the decisions of the Academic Board and other senior executive committees.</p>` },
-                { id: 6, criterion: "Organisational and administrative skills", details: `<h3>Systematic & Meticulous Approach</h3><p>My work is characterised by a high degree of organisation and attention to detail. I developed systematic curriculum mapping processes to link Unit Learning Outcomes (ULOs), Course Learning Outcomes (CLOs), and Graduate Qualities. I have direct oversight of the compliance documentation required for all curriculum approvals and am adept at coordinating multiple complex projects simultaneously with a high level of accuracy.</p>` },
-                { id: 7, criterion: "Interpersonal, negotiation and communication skills", details: `<h3>Collaborative Stakeholder Engagement</h3><p>I work collaboratively with a diverse range of stakeholders, including Associate Deans, the DVC Education portfolio, the Library, and academic staff across various faculties. I have successfully negotiated cross-unit initiatives (e.g., 'Just-in-Time' research training) and am recognised for clear, persuasive communication that has led to grant success and governance approvals. My academic and professional writing is consistently noted for its clarity and rigour.</p>` }
+                { id: 1, criterion: "Tertiary qualifications and/or equivalent experience", details: `<h3>1. Tertiary qualifications in a relevant field and/or equivalent project management or research experience</h3><p>I hold a PhD in Applied Linguistics from Macquarie University, with a research focus on multimodal learning and curriculum design. This has equipped me with advanced skills in policy analysis, research design, and evidence-based curriculum development. My doctoral work was complemented by roles in educational design where I have applied project management methodologies to curriculum review, policy implementation, and assessment reform across multiple universities.</p>` },
+                { id: 2, criterion: "Demonstrated experience managing complex processes", details: `<h3>2. Demonstrated experience managing complex processes within large or multifaceted organisations</h3><p>In my current role as Educational Designer at Sydney Law School, I manage curriculum approval processes for over 300 units of study, coordinating between academics, professional staff, and governance bodies. As Chair of the Unit Outline Approval Committee, I oversee alignment with AQF, CALD Threshold Learning Outcomes, Graduate Qualities, and faculty standards. These processes involve managing competing stakeholder interests, strict governance timelines, and regulatory compliance. I have also contributed to whole-of-faculty projects such as the Canvas LMS Template Uplift, requiring coordination across academic and professional portfolios.</p>` },
+                { id: 3, criterion: "Experience in the higher education sector", details: `<h3>3. Experience working in the higher education or tertiary sector (desirable)</h3><p>I have over a decade of experience across leading Australian universities, including the University of Sydney, University of Wollongong, and Macquarie University. I have designed, implemented, and evaluated curriculum initiatives at both faculty and institutional levels, working closely with ADEs, the DVC Education portfolio, and Academic Board committees. My external engagements as a consultant on AI in education with UNSW and UNE further demonstrate my sectoral experience and credibility.</p>` },
+                { id: 4, criterion: "Proven project management experience", details: `<h3>4. Proven project management experience, including delivering initiatives to deadlines and governance requirements</h3><p>I have led multiple high-profile projects, including the Law School LMS Template Uplift, the AI in Legal Education framework, and competency-based assessment initiatives for Ngura. Each project required planning, stakeholder consultation, and delivery against tight deadlines and governance requirements. For example, the LMS Uplift was delivered in alignment with the University’s strategic timeline for teaching readiness, ensuring universal design for learning principles were embedded while minimising staff training burden.</p>` },
+                { id: 5, criterion: "Skills in policy analysis, research and report writing", details: `<h3>5. Strong skills in policy analysis, research and report writing</h3><p>I regularly prepare briefs, submissions, and reports for committees and governance bodies. Examples include submissions to the LPAB governance review, policy briefs on AI and assessment integrity, and compliance reports aligned with TEQSA HESF standards. My reports have directly informed Academic Board and faculty decisions, and my published research demonstrates my ability to integrate scholarship with applied policy recommendations.</p>` },
+                { id: 6, criterion: "Excellent organisational and administrative skills", details: `<h3>6. Excellent organisational and administrative skills with attention to detail</h3><p>In my role, I manage simultaneous curriculum reforms, research ethics applications, and project deliverables. I developed a systematic approach to curriculum mapping that integrates unit learning outcomes with course learning outcomes and graduate qualities, ensuring compliance while providing clarity for academics. My administrative oversight ensures all curriculum documentation is accurate, consistent, and aligned with governance requirements.</p>` },
+                { id: 7, criterion: "Highly developed interpersonal and communication skills", details: `<h3>7. Highly developed interpersonal, negotiation and written communication skills with the ability to work collaboratively across diverse stakeholder groups</h3><p>I work closely with senior academics, governance committees, and professional staff to deliver curriculum initiatives. For example, in leading the Just-in-Time research training initiative, I negotiated between the Library, DVC Education portfolio, and faculty units to design a shared delivery model. I have a reputation for producing clear, persuasive written communication, which has been critical in securing grant funding and in gaining support for curriculum reforms. My ability to engage across diverse groups is also evidenced by external consultancy roles, where I advise peer institutions on AI and educational design.</p>` }
             ];
+
+            const closingStatement = {
+                title: "Closing Statement",
+                details: `<h3 class="text-xl font-bold">Closing Statement</h3><p>I believe my qualifications, curriculum governance expertise, and track record in managing complex educational initiatives demonstrate my strong suitability for the role of Associate Advisor (Curriculum). I seek to undertake this role as a secondment until September 2026, bringing deep institutional knowledge of the University of Sydney, proven project leadership, and a commitment to enhancing curriculum quality and the student experience at the whole-of-University level.</p>`
+            };
             
             // --- DOM ELEMENTS ---
             const criteriaListContainer = document.getElementById('criteria-list');
             const detailsContainer = document.getElementById('criteria-details');
+            const closingStatementContainer = document.getElementById('closing-statement-container');
             const themeToggleButton = document.getElementById('theme-toggle-btn');
             const sunIcon = document.getElementById('sun-icon');
             const moonIcon = document.getElementById('moon-icon');
@@ -205,6 +217,10 @@
                 });
             }
 
+            function displayClosingStatement() {
+                closingStatementContainer.innerHTML = `<div class="prose max-w-none">${closingStatement.details}</div>`;
+            }
+
             function toggleTheme() {
                 document.body.classList.toggle('dark-mode');
                 sunIcon.classList.toggle('hidden');
@@ -224,6 +240,7 @@
             applyInitialTheme();
             populateCriteriaList();
             displayDetails(1); 
+            displayClosingStatement();
             
             themeToggleButton.addEventListener('click', toggleTheme);
         });
