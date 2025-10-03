@@ -142,14 +142,65 @@
         <!-- Main Application Container -->
         <main class="rounded-2xl shadow-2xl overflow-hidden">
             <!-- Tab Navigation -->
-            <div id="tab-container" class="flex border-b" style="border-color: var(--border-color);">
-                <button class="tab-btn active font-semibold py-3 px-6 rounded-t-lg" data-tab="tab-1">Selection Criteria Statement</button>
-                <button class="tab-btn font-semibold py-3 px-6 rounded-t-lg" data-tab="tab-2">Role Alignment Analysis</button>
+            <div id="tab-container" class="flex flex-wrap border-b" style="border-color: var(--border-color);">
+                <button class="tab-btn active font-semibold py-3 px-6 rounded-t-lg" data-tab="tab-0">About Me</button>
+                <button class="tab-btn font-semibold py-3 px-6 rounded-t-lg" data-tab="tab-1">Current Responsibilities</button>
+                <button class="tab-btn font-semibold py-3 px-6 rounded-t-lg" data-tab="tab-2">Selection Criteria Statement</button>
+                <button class="tab-btn font-semibold py-3 px-6 rounded-t-lg" data-tab="tab-3">Role Alignment Analysis</button>
             </div>
 
             <div class="p-4 sm:p-6 md:p-8">
-                <!-- Tab 1: Selection Criteria Matrix -->
-                <div id="tab-1" class="tab-content active">
+                <!-- Tab 0: About Me -->
+                <div id="tab-0" class="tab-content active">
+                    <div class="prose max-w-none">
+                        <h3>About Me</h3>
+                        <ul class="list-disc space-y-3 pl-5">
+                            <li><strong>Tertiary qualifications:</strong> I hold a PhD in Applied Linguistics, with a research focus on multimodal learning and curriculum design.</li>
+                            <li><strong>Complex process management:</strong> I lead curriculum development, mapping, and approval across undergraduate, postgraduate and HDR courses in the Sydney Law School</li>
+                            <li><strong>Higher education experience:</strong> I have held teaching and curriculum development roles at Sydney, Wollongong, UNSW, and Macquarie Universities, with over a decade of sector expertise.</li>
+                            <li><strong>Project management:</strong> I have successfully delivered faculty-wide initiatives on schedule and in alignment with governance and compliance requirements.</li>
+                            <li><strong>Policy analysis and report writing:</strong> I prepare policy briefs and governance submissions that inform Academic Board and faculty decisions.</li>
+                            <li><strong>Organisational and administrative skills:</strong> I coordinate multiple concurrent projects while maintaining attention to detail and compliance.</li>
+                            <li><strong>Interpersonal and communication skills:</strong> I work effectively with senior executives, governance committees, and diverse academic and professional staff, and I am known for producing clear, persuasive written communication.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tab 1: Current Responsibilities -->
+                <div id="tab-1" class="tab-content">
+                    <div class="prose max-w-none">
+                        
+                        <ul class="list-none space-y-4 pl-0">
+                            <li>
+                                <strong>Coordinate curriculum management processes and proposals</strong>
+                                <p>In my role at the Law School, I manage curriculum reviews, assessment redesign, and approval processes, including chairing the Unit Outline Approval Committee. This requires aligning unit and program designs with AQF expectations, CALD Threshold Learning Outcomes, Graduate Qualities, and governance requirements.</p>
+                            </li>
+                            <li>
+                                <strong>Support evidence-based education projects</strong>
+                                <p>I have led multiple initiatives grounded in research, including AI-enabled feedback pilots, competency-based assessment design, and research training reforms. These projects are evaluated against evidence of student learning and engagement, and I have secured funding through internal and national education grants.</p>
+                            </li>
+                             <li>
+                                <strong>Conduct policy research, analysis and reporting</strong>
+                                <p>I regularly prepare submissions for the Academic Board, Law Extension Committee, and LPAB governance review, drawing on TEQSA HESF, HESA compliance, and professional standards. These contributions demonstrate my ability to interpret complex policy and provide actionable advice.</p>
+                            </li>
+                            <li>
+                                <strong>Prepare briefs, submissions, and reports</strong>
+                                <p>My governance and project work requires producing clear, concise, and well-structured briefs and reports for senior leadership. Examples include submissions on AI in education, assessment policy, and student support initiatives, all of which informed faculty and university-level decision-making.</p>
+                            </li>
+                            <li>
+                                <strong>Build effective working relationships across the University</strong>
+                                <p>I collaborate with colleagues in the DVC Education portfolio, Library, and ADEs to deliver cross-faculty initiatives such as Just-in-Time research skills training and the LMS uplift project. I also liaise externally with UNSW and UNE as an expert consultant on AI in education, demonstrating my capacity to build productive networks.</p>
+                            </li>
+                            <li>
+                                <strong>Undertake ad-hoc curriculum projects</strong>
+                                <p>My portfolio includes diverse initiatives, from the Ngura competency-based assessment project to the development of AI literacy frameworks for undergraduate and postgraduate law. This variety shows my adaptability and capacity to deliver ad-hoc projects aligned with strategic priorities.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Selection Criteria Matrix -->
+                <div id="tab-2" class="tab-content">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="w-full md:w-1/3">
                             <ul id="criteria-list" class="space-y-2"></ul>
@@ -160,8 +211,8 @@
                     </div>
                 </div>
 
-                <!-- Tab 2: Role Alignment Analysis -->
-                <div id="tab-2" class="tab-content">
+                <!-- Tab 3: Role Alignment Analysis -->
+                <div id="tab-3" class="tab-content">
                     <div id="accordion-container" class="space-y-4"></div>
                 </div>
             </div>
@@ -187,8 +238,8 @@
             ];
 
             const accordionData = [
-                { title: "1. Alignment with Role Purpose", content: `<p><strong>The position is about supporting curriculum governance, policy, and project delivery at a whole-of-university level.</strong></p><p><strong>My fit:</strong> I am already the Educational Designer at Sydney Law School, where I lead strategic curriculum initiatives, chair governance processes (Unit Outline Approval Committee), and liaise with senior executives and committees (Law Extension Committee, Academic Senate representation). This demonstrates my clear experience bridging academic, governance, and operational priorities at scale.</p>` },
-                { title: "2. Key Responsibilities vs My Experience", content: `<div class="prose max-w-none"><ol type="a" class="ml-5 space-y-4"><li><strong>Coordinate curriculum management processes and proposals</strong><p>I manage curriculum reviews, assessment redesign, and LMS uplift projects for one of the University’s largest faculties. I have experience integrating CALD TLOs, AQF, CLOs, and Graduate Qualities into program structures — directly relevant to system-level curriculum management.</p></li><li><strong>Support evidence-based education projects</strong><p>My work on AI in law education, research ethics applications, and student feedback projects shows I already design and evaluate evidence-informed initiatives. I have a research background (PhD in Applied Linguistics) and am published in educational design, demonstrating strong scholarly underpinnings.</p></li><li><strong>Policy research, analysis and reporting</strong><p>I regularly interpret TEQSA HESF, HESA compliance, and NSW Supreme Court practice notes to advise on curriculum and assessment policy. My submissions to LPAB governance review and leadership in AI policy show clear policy analysis and report-preparation skills.</p></li><li><strong>Prepare briefs, submissions, reports for governance committees</strong><p>I’ve prepared submissions and briefs for education committees at both School and University levels. I also write proposals that secure funding (e.g., grants, national WiL initiatives), proving I can produce persuasive, policy-aligned documents.</p></li><li><strong>Build working relationships with faculties, schools, operational units</strong><p>I already collaborate across USYD (Library, ADEs, DVC Education portfolio initiatives), as well as externally (UNSW, UNE, LPAB). This demonstrates my ability to engage beyond my faculty and build cooperative networks.</p></li><li><strong>Undertake ad-hoc curriculum projects</strong><p>My portfolio shows I thrive on diverse projects: LMS redesign, AI in curriculum, Ngura competency-based assessment, research training uplift, etc. This adaptability is directly what “ad-hoc” project work requires.</p></li></ol></div>` },
+                { title: "1. Alignment with Role Purpose", content: `<p><strong>The position is about supporting curriculum governance, policy, and project delivery at a whole-of-university level.</strong></p><p>As the Sydney Law School's Educational Designer, I lead strategic curriculum initiatives, chair governance processes (Unit outline approval committee) and liaise with senior executives and committees (eTools/Digital Education Committee, Academic Senate's Law Extension Committee). This demonstrates my extensive experience across academic, governance, and operational priorities at scale.</p>` },
+                { title: "2. Key Responsibilities vs My Experience", content: `<div class="prose max-w-none"><ol type="a" class="ml-5 space-y-4"><li><strong>Coordinate curriculum management processes and proposals</strong><p>I manage curriculum reviews, assessment redesign, and LMS uplift projects for one of the University’s largest faculties. I have experience integrating CALD TLOs, AQF, CLOs, and Graduate Qualities into program structures — directly relevant to system-level curriculum management.</p></li><li><strong>Support evidence-based education projects</strong><p>My work on AI in law education, research ethics applications, and student feedback projects shows I already design and evaluate evidence-informed initiatives. I have a research background (PhD in Applied Linguistics) and am published in educational design, demonstrating strong scholarly underpinnings.</p></li><li><strong>Policy research, analysis and reporting</strong><p>I regularly interpret TEQSA HESF, HESA compliance, and NSW Supreme Court practice notes to advise on curriculum and assessment policy. My submissions to LPAB governance review and leadership in in AI policy show clear policy analysis and report-preparation skills.</p></li><li><strong>Prepare briefs, submissions, reports for governance committees</strong><p>I’ve prepared submissions and briefs for education committees at both School and University levels. I also write proposals that secure funding (e.g., grants, national WiL initiatives), proving I can produce persuasive, policy-aligned documents.</p></li><li><strong>Build working relationships with faculties, schools, operational units</strong><p>I already collaborate across USYD (Library, ADEs, DVC Education portfolio initiatives), as well as externally (UNSW, UNE, LPAB). This demonstrates my ability to engage beyond my faculty and build cooperative networks.</p></li><li><strong>Undertake ad-hoc curriculum projects</strong><p>My portfolio shows I thrive on diverse projects: LMS redesign, AI in curriculum, Ngura competency-based assessment, research training uplift, etc. This adaptability is directly what “ad-hoc” project work requires.</p></li></ol></div>` },
                 { title: "3. Selection Criteria Fit", content: `<ul class="list-disc ml-5 space-y-2"><li><strong>Tertiary qualifications:</strong> I hold a PhD in Applied Linguistics with a strong curriculum/educational design research background.</li><li><strong>Managing complex processes:</strong> I coordinate curriculum and governance reforms across multiple programs with competing interests.</li><li><strong>Higher education sector experience:</strong> I have over a decade of experience across USYD, UoW, Macquarie, plus international university roles.</li><li><strong>Project management:</strong> I’ve led faculty-wide projects with strict timelines (e.g., AI rollout, Canvas uplift, curriculum mapping).</li><li><strong>Policy analysis & reporting:</strong> My experience is demonstrated in governance reviews, TEQSA/HESF alignment, and Senate committee work.</li><li><strong>Organisational/administrative skills:</strong> I have extensive experience managing large portfolios, assessment frameworks, and governance committees.</li><li><strong>Interpersonal and communication skills:</strong> I have a proven ability to negotiate with senior academics, policy-makers, and committees, and I am widely recognised for clarity and precision in my writing.</li></ul>` },
                 { title: "4. Why I am a Strong Fit", content: `<ul class="list-disc ml-5 space-y-2"><li>I already operate at the intersection of curriculum, governance, and innovation within USYD.</li><li>I have the research and policy expertise (PhD, publications, TEQSA/HESF knowledge) to give intellectual weight to curriculum projects.</li><li>I bring proven project leadership — not just management, but also design, delivery, and evaluation.</li><li>I have credibility within the University, having delivered high-profile initiatives in law and beyond, with direct reporting to senior leaders.</li></ul>` }
             ];
@@ -200,11 +251,11 @@
             const tabContainer = document.getElementById('tab-container');
             const tabContents = document.querySelectorAll('.tab-content');
             
-            // Tab 1 Elements
+            // Tab 2 Elements
             const criteriaListContainer = document.getElementById('criteria-list');
             const detailsContainer = document.getElementById('criteria-details');
 
-            // Tab 2 Elements
+            // Tab 3 Elements
             const accordionContainer = document.getElementById('accordion-container');
 
 
@@ -223,6 +274,11 @@
                     document.body.classList.add('dark-mode');
                     sunIcon.classList.add('hidden');
                     moonIcon.classList.remove('hidden');
+                } else {
+                    // Ensure light mode is default
+                    document.body.classList.remove('dark-mode');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
                 }
             }
 
@@ -240,7 +296,7 @@
                 });
             }
 
-            // Tab 1: Selection Criteria
+            // Tab 2: Selection Criteria
             function displayDetails(criterionId) {
                 const criterion = selectionCriteriaData.find(c => c.id === criterionId);
                 if (criterion) {
@@ -248,7 +304,15 @@
                 }
                 
                 document.querySelectorAll('#criteria-list li button').forEach(button => {
-                    button.classList.toggle('active', parseInt(button.dataset.id) === criterionId);
+                    const buttonId = parseInt(button.dataset.id);
+                    const listItem = button.parentElement;
+                    if(buttonId === criterionId) {
+                        button.style.backgroundColor = 'var(--bg-secondary)';
+                        button.style.borderColor = 'var(--text-secondary)';
+                    } else {
+                        button.style.backgroundColor = 'var(--bg-main)';
+                        button.style.borderColor = 'var(--border-color)';
+                    }
                 });
             }
 
@@ -263,8 +327,9 @@
                 });
             }
 
-            // Tab 2: Accordion
+            // Tab 3: Accordion
             function populateAccordion() {
+                accordionContainer.innerHTML = '';
                 accordionData.forEach((itemData, index) => {
                     const item = document.createElement('div');
                     item.className = 'accordion-item rounded-xl';
@@ -294,6 +359,7 @@
                 const item = header.parentElement;
                 const wasActive = item.classList.contains('active');
 
+                // This logic closes all others when one is opened.
                 document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
                 
                 if (!wasActive) {
@@ -304,11 +370,11 @@
             // --- INITIALIZATION & EVENT LISTENERS ---
             applyInitialTheme();
             
-            // Init Tab 1
+            // Init Tab 2
             populateCriteriaList();
             displayDetails(1); 
             
-            // Init Tab 2
+            // Init Tab 3
             populateAccordion();
             
             // Event Listeners
@@ -319,3 +385,5 @@
     </script>
 </body>
 </html>
+
+
