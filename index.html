@@ -152,10 +152,6 @@
                 </div>
             </div>
             
-            <!-- Closing Statement Section -->
-            <div id="closing-statement-container" class="mt-8 pt-6" style="border-top: 1px solid var(--border-color);">
-                 <!-- Closing statement will be inserted here -->
-            </div>
         </main>
         
         <!-- Footer -->
@@ -176,12 +172,10 @@
                 { id: 6, criterion: "Excellent organisational and administrative skills", details: `<h3>6. Excellent organisational and administrative skills with attention to detail</h3><p>In my role, I manage simultaneous curriculum reforms, research ethics applications, and project deliverables. I developed a systematic approach to curriculum mapping that integrates unit learning outcomes with course learning outcomes and graduate qualities, ensuring compliance while providing clarity for academics. My administrative oversight ensures all curriculum documentation is accurate, consistent, and aligned with governance requirements.</p>` },
                 { id: 7, criterion: "Highly developed interpersonal and communication skills", details: `<h3>7. Highly developed interpersonal, negotiation and written communication skills with the ability to work collaboratively across diverse stakeholder groups</h3><p>I work closely with senior academics, governance committees, and professional staff to deliver curriculum initiatives. For example, in leading the Just-in-Time research training initiative, I negotiated between the Library, DVC Education portfolio, and faculty units to design a shared delivery model. I have a reputation for producing clear, persuasive written communication, which has been critical in securing grant funding and in gaining support for curriculum reforms. My ability to engage across diverse groups is also evidenced by external consultancy roles, where I advise peer institutions on AI and educational design.</p>` }
             ];
-            };
-            
+
             // --- DOM ELEMENTS ---
             const criteriaListContainer = document.getElementById('criteria-list');
             const detailsContainer = document.getElementById('criteria-details');
-            const closingStatementContainer = document.getElementById('closing-statement-container');
             const themeToggleButton = document.getElementById('theme-toggle-btn');
             const sunIcon = document.getElementById('sun-icon');
             const moonIcon = document.getElementById('moon-icon');
@@ -213,10 +207,6 @@
                 });
             }
 
-            function displayClosingStatement() {
-                closingStatementContainer.innerHTML = `<div class="prose max-w-none">${closingStatement.details}</div>`;
-            }
-
             function toggleTheme() {
                 document.body.classList.toggle('dark-mode');
                 sunIcon.classList.toggle('hidden');
@@ -236,7 +226,6 @@
             applyInitialTheme();
             populateCriteriaList();
             displayDetails(1); 
-            displayClosingStatement();
             
             themeToggleButton.addEventListener('click', toggleTheme);
         });
