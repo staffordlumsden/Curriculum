@@ -1,5 +1,8 @@
 # Curriculum Advisor Portfolio
-Provides a tabbed interface of relevant information on **Stafford LUmsden**
+_Associate Advisor (Curriculum), Ref. 0140568_
+Dr Stafford Lumsden
+
+email: stafford.lumsden@sydney,edu.ai
 
 ## About Me
 - Tertiary qualifications: I hold a PhD in Applied Linguistics, with a research focus on multimodal learning and curriculum design.
