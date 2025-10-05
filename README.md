@@ -46,8 +46,9 @@ My portfolio includes diverse initiatives, from the Ngura competency-based asses
 
 ## Role Alignment Analysis
 ### 1. Alignment with Role Purpose
-The position is about supporting curriculum governance, policy, and project delivery at a whole-of-university level.
+_The position is about supporting curriculum governance, policy, and project delivery at a whole-of-university level._
 As the Sydney Law School's Educational Designer, I lead strategic curriculum initiatives, chair governance processes (Unit outline approval committee) and liaise with senior executives and committees (eTools/Digital Education Committee, Academic Senate's Law Extension Committee). This demonstrates my extensive experience across academic, governance, and operational priorities at scale.
+
 ---
 
 ### 2. Key Responsibilities vs My Experience
@@ -67,7 +68,8 @@ _Build working relationships with faculties, schools, operational units_
 - I already collaborate across USYD (Library, ADEs, DVC Education portfolio initiatives), as well as externally (UNSW, UNE, LPAB). This demonstrates my ability to engage beyond my faculty and build cooperative networks.
 
 _Undertake ad-hoc curriculum projects_
-- My portfolio shows I thrive on diverse projects: LMS redesign, AI in curriculum, Ngura competency-based assessment, research training uplift, etc. This adaptability is directly what “ad-hoc” project work requires.
+- My portfolio shows I thrive on diverse projects: LMS redesign, AI in curriculum, Ngura competency-based assessment, research training uplift, etc. This adaptability is what “ad-hoc” project work requires.
+
 ---
 
 ### 3. Selection Criteria Fit
@@ -78,6 +80,7 @@ _Undertake ad-hoc curriculum projects_
 - Policy analysis & reporting: My experience is demonstrated in governance reviews, TEQSA/HESF alignment, and Senate committee work.
 - Organisational/administrative skills: I have extensive experience managing large portfolios, assessment frameworks, and governance committees.
 - Interpersonal and communication skills: I have a proven ability to negotiate with senior academics, policy-makers, and committees, and I am widely recognised for clarity and precision in my writing.
+
 ---
 
 ### 4. Why I am a Strong Fit
